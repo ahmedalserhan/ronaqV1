@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rawnak | رونق – ذوقك الجامعي الفاخر</title>
@@ -13,242 +13,277 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="aurora-background">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
+      <div class="shape shape1"></div>
+      <div class="shape shape2"></div>
     </div>
 
     <header class="glass-effect sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center p-4">
-          <a href="index.html" class="flex items-center gap-2">
-            <img
-              src="images/رونق_large_800px_transparent.png"
-              alt="شعار رونق"
-              class="w-24 h-24"
-            />
-          </a>
-      
-          <nav class="hidden lg:flex items-center gap-x-8 text-lg">
-            <a href="index.html#products" class="nav-link">المنتجات</a>
-            <a href="index.html#batches" class="nav-link">دفعتك</a>
-            <a href="index.html#initiatives" class="nav-link">المبادرات</a>
-            <a href="index.html#community" class="nav-link">المجتمع</a>
-            <a href="index.html#membership" class="nav-link">الاشتراك</a>
-          </nav>
-      
-          <div class="flex items-center gap-4">
-            <div id="cart-icon-container" class="hidden lg:block">
-              <!-- أيقونة السلة هنا -->
-            </div>
-      
-            <div id="user-actions" class="flex items-center gap-4">
-              <!-- زر تسجيل الدخول -->
-              <a
-                href="login.html"
-                class="cta-button px-4 py-2 text-lg"
-              >
-                تسجيل الدخول
-              </a>
-              <!-- إذا أردت لاحقًا عرض اسم المستخدم بعد الدخول: -->
-              <!-- <span class="text-text-muted">مرحبًا، أحمد</span> -->
-            </div>
+      <div class="container mx-auto flex justify-between items-center p-4">
+        <a href="index.html" class="flex items-center gap-2">
+          <img
+            src="images/رونق_large_800px_transparent.png"
+            alt="شعار رونق"
+            class="w-24 h-24"
+          />
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-x-8 text-lg">
+          <a href="index.html#products" class="nav-link">المنتجات</a>
+          <a href="index.html#batches" class="nav-link">دفعتك</a>
+          <a href="index.html#initiatives" class="nav-link">المبادرات</a>
+          <a href="index.html#community" class="nav-link">المجتمع</a>
+          <a href="index.html#membership" class="nav-link">الاشتراك</a>
+          <a href="contact.html" class="nav-link">اتصل بنا</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <div id="cart-icon-container" class="hidden lg:block">
+            <!-- أيقونة السلة هنا -->
           </div>
-      
-          <button id="mobile-menu-button" class="lg:hidden text-accent focus:outline-none">
-            <span class="text-3xl">☰</span>
-          </button>
+
+          <div id="user-actions" class="flex items-center gap-4">
+            <!-- زر تسجيل الدخول -->
+            <a href="login.html" class="cta-button px-4 py-2 text-lg">
+              تسجيل الدخول
+            </a>
+            <!-- إذا أردت لاحقًا عرض اسم المستخدم بعد الدخول: -->
+            <!-- <span class="text-text-muted">مرحبًا، أحمد</span> -->
+          </div>
         </div>
-      
-        <div id="mobile-menu" class="hidden lg:hidden">
-          <!-- قائمة الجوال المنسدلة -->
-        </div>
-      </header>
-      
+
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden text-accent focus:outline-none"
+        >
+          <span class="text-3xl">☰</span>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <!-- قائمة الجوال المنسدلة -->
+      </div>
+    </header>
 
     <main>
-        <section
-          class="relative h-[95vh] flex items-center justify-center text-center px-6 bg-cover bg-center"
-          style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('images/رونق_large_800px.png');"
+      <section
+        class="relative h-[95vh] flex items-center justify-center text-center px-6 bg-cover bg-center"
+        style="
+          background-image:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+            url(&quot;images/رونق_large_800px.png&quot;);
+        "
+      >
+        <img
+          src="images/رونق_medium_400px_transparent.png"
+          alt="شعار رونق كعلامة مائية"
+          class="absolute inset-0 mx-auto my-auto w-72 h-72 object-contain opacity-10 pointer-events-none select-none"
+        />
+        <div
+          class="relative z-10 max-w-4xl bg-white/10 backdrop-blur-lg rounded-3xl p-10 md:p-16 shadow-2xl border border-white/20"
         >
+          <h1
+            class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-snug tracking-wide"
+          >
+            ستايلك الجامعي مايشبه أحد
+          </h1>
+          <p class="text-gray-100 text-lg md:text-2xl mb-10">
+            اكتشف تصاميم فريدة تمثل تخصصك وهويتك بأسلوب عصري وراقي.
+          </p>
+          <a
+            href="#products"
+            class="inline-block bg-white text-gray-900 text-lg font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-100 transition duration-300"
+            >تصفح المجموعة</a
+          >
+        </div>
+      </section>
+
+      <section id="products" class="py-20 px-4">
+        <div class="container mx-auto text-center fade-in">
+          <div class="flex justify-center items-center gap-4 mb-12">
+            <h2 class="text-4xl font-bold text-accent">ما الجديد؟</h2>
             <img
-              src="images/رونق_medium_400px_transparent.png"
-              alt="شعار رونق كعلامة مائية"
-              class="absolute inset-0 mx-auto my-auto w-72 h-72 object-contain opacity-10 pointer-events-none select-none"
+              src="images/رونق_small_150px_transparent.png"
+              alt="شعار رونق - جديدنا"
+              class="w-24 h-24"
             />
-            <div
-              class="relative z-10 max-w-4xl bg-white/10 backdrop-blur-lg rounded-3xl p-10 md:p-16 shadow-2xl border border-white/20"
+          </div>
+          <div
+            id="public-products-list"
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12"
+          ></div>
+        </div>
+      </section>
+
+      <section id="batches" class="py-20 px-4">
+        <div
+          class="container mx-auto text-center glass-effect rounded-3xl p-12 fade-in"
+        >
+          <div class="flex justify-center items-center gap-4 mb-4">
+            <img
+              src="images/رونق_favicon_64px_transparent.png"
+              alt="شعار رونق"
+              class="w-16 h-16 invert"
+            />
+            <h2 class="text-4xl font-bold text-accent">
+              تصميم دفعتك، إصدار محدود!
+            </h2>
+          </div>
+          <p class="text-lg text-text-muted mb-8">
+            قطع حصرية لدفعتك لن تتكرر. احصل عليها الآن.
+          </p>
+          <div
+            id="countdown"
+            class="text-4xl font-bold text-accent mb-8 tabular-nums tracking-widest flex justify-center items-baseline flex-wrap"
+          ></div>
+          <div
+            id="public-batches-list"
+            class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          ></div>
+        </div>
+      </section>
+
+      <section id="initiatives" class="py-20 px-4">
+        <div class="container mx-auto text-center fade-in">
+          <h2 class="text-4xl font-bold mb-12 text-accent">مبادرات رونق</h2>
+          <div
+            id="public-initiatives-list"
+            class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto"
+          ></div>
+        </div>
+      </section>
+
+      <section id="community" class="py-20 px-4">
+        <div class="container mx-auto text-center fade-in">
+          <h2 class="text-4xl font-bold mb-4 text-accent">#ستايل_رونق</h2>
+          <p class="text-lg text-text-muted mb-12">
+            أفضل إطلالات هذا الأسبوع من مجتمعنا.
+          </p>
+          <div
+            id="public-looks-list"
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          ></div>
+          <a href="#" class="mt-12 inline-block cta-button text-lg"
+            >شاركنا إطلالتك</a
+          >
+        </div>
+      </section>
+
+      <section id="membership" class="py-20 px-4">
+        <div
+          class="container mx-auto text-center glass-effect rounded-3xl p-12 fade-in"
+        >
+          <img
+            src="images/رونق_medium_400px_transparent.png"
+            alt="شعار رونق كعلامة مائية"
+            class="absolute inset-0 w-full h-full object-contain opacity-5 z-0"
+          />
+          <div class="relative z-10">
+            <h2 class="text-4xl font-bold mb-4 text-accent">
+              اشترك وكن من أصدقاء رونق
+            </h2>
+            <p class="text-lg text-text-muted mb-8">
+              احصل على خصومات حصرية، وصول مبكر للمجموعات، والمزيد!
+            </p>
+            <ul
+              class="text-right max-w-md mx-auto list-disc list-inside mb-8 space-y-2"
             >
-                <h1
-                  class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-snug tracking-wide"
-                >
-                    ستايلك الجامعي مايشبه أحد
-                </h1>
-                <p class="text-gray-100 text-lg md:text-2xl mb-10">
-                    اكتشف تصاميم فريدة تمثل تخصصك وهويتك بأسلوب عصري وراقي.
-                </p>
-                <a
-                  href="#products"
-                  class="inline-block bg-white text-gray-900 text-lg font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-100 transition duration-300"
-                  >تصفح المجموعة</a
-                >
+              <li>خصم 15% دائم على جميع الطلبات.</li>
+              <li>وصول مبكر 48 ساعة قبل الجميع للمجموعات الجديدة.</li>
+              <li>دعوات حصرية لفعاليات رونق.</li>
+            </ul>
+            <div class="flex justify-center gap-4">
+              <a href="#" class="cta-button text-lg">الاشتراك الفصلي</a>
+              <a
+                href="#"
+                class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition text-lg"
+                >الاشتراك الشهري</a
+              >
             </div>
-        </section>
-
-        <section id="products" class="py-20 px-4">
-            <div class="container mx-auto text-center fade-in">
-                <div class="flex justify-center items-center gap-4 mb-12">
-                    <h2 class="text-4xl font-bold text-accent">ما الجديد؟</h2>
-                    <img
-                      src="images/رونق_small_150px_transparent.png"
-                      alt="شعار رونق - جديدنا"
-                      class="w-24 h-24"
-                    />
-                </div>
-                <div
-                  id="public-products-list"
-                  class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12"
-                ></div>
-            </div>
-        </section>
-
-        <section id="batches" class="py-20 px-4">
-            <div
-              class="container mx-auto text-center glass-effect rounded-3xl p-12 fade-in"
-            >
-                <div class="flex justify-center items-center gap-4 mb-4">
-                    <img
-                      src="images/رونق_favicon_64px_transparent.png"
-                      alt="شعار رونق"
-                      class="w-16 h-16 invert"
-                    />
-                    <h2 class="text-4xl font-bold text-accent">تصميم دفعتك، إصدار محدود!</h2>
-                </div>
-                <p class="text-lg text-text-muted mb-8">
-                    قطع حصرية لدفعتك لن تتكرر. احصل عليها الآن.
-                </p>
-                <div
-                  id="countdown"
-                  class="text-4xl font-bold text-accent mb-8 tabular-nums tracking-widest flex justify-center items-baseline flex-wrap"
-                ></div>
-                <div
-                  id="public-batches-list"
-                  class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
-                ></div>
-            </div>
-        </section>
-
-        <section id="initiatives" class="py-20 px-4">
-            <div class="container mx-auto text-center fade-in">
-                <h2 class="text-4xl font-bold mb-12 text-accent">مبادرات رونق</h2>
-                <div
-                  id="public-initiatives-list"
-                  class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto"
-                ></div>
-            </div>
-        </section>
-
-        <section id="community" class="py-20 px-4">
-            <div class="container mx-auto text-center fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-accent">#ستايل_رونق</h2>
-                <p class="text-lg text-text-muted mb-12">
-                    أفضل إطلالات هذا الأسبوع من مجتمعنا.
-                </p>
-                <div
-                  id="public-looks-list"
-                  class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-                ></div>
-                <a href="#" class="mt-12 inline-block cta-button text-lg">شاركنا إطلالتك</a>
-            </div>
-        </section>
-
-        <section id="membership" class="py-20 px-4">
-            <div
-              class="container mx-auto text-center glass-effect rounded-3xl p-12 fade-in"
-            >
-                <img
-                  src="images/رونق_medium_400px_transparent.png"
-                  alt="شعار رونق كعلامة مائية"
-                  class="absolute inset-0 w-full h-full object-contain opacity-5 z-0"
-                />
-                <div class="relative z-10">
-                    <h2 class="text-4xl font-bold mb-4 text-accent">
-                        اشترك وكن من أصدقاء رونق
-                    </h2>
-                    <p class="text-lg text-text-muted mb-8">
-                        احصل على خصومات حصرية، وصول مبكر للمجموعات، والمزيد!
-                    </p>
-                    <ul
-                      class="text-right max-w-md mx-auto list-disc list-inside mb-8 space-y-2"
-                    >
-                        <li>خصم 15% دائم على جميع الطلبات.</li>
-                        <li>وصول مبكر 48 ساعة قبل الجميع للمجموعات الجديدة.</li>
-                        <li>دعوات حصرية لفعاليات رونق.</li>
-                    </ul>
-                    <div class="flex justify-center gap-4">
-                        <a href="#" class="cta-button text-lg">الاشتراك الفصلي</a>
-                        <a
-                          href="#"
-                          class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition text-lg"
-                          >الاشتراك الشهري</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="pt-20 pb-10 px-4 text-center">
-        <div class="container mx-auto grid md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="font-bold text-xl mb-4">روابط سريعة</h3>
-                <ul>
-                    <li><a href="#" class="text-text-muted hover:text-accent">كيفية الطلب والتوصيل</a></li>
-                    <li><a href="#" class="text-text-muted hover:text-accent">تواصل معنا</a></li>
-                    <li><a href="#" class="text-text-muted hover:text-accent">سياسة الخصوصية</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold text-xl mb-4">تواصل معنا</h3>
-                <div class="flex justify-center items-center gap-2">
-                    <img src="images/رونق_favicon_32px_transparent.png" alt="شعار رونق" class="w-6 h-6 invert" />
-                    <p class="text-text-muted">contact@rawnak.com</p>
-                </div>
-                <div class="flex justify-center gap-4 mt-2">
-                    <a href="#" class="text-text-muted hover:text-accent">Instagram</a>
-                    <a href="#" class="text-text-muted hover:text-accent">Twitter</a>
-                </div>
-            </div>
-            <div>
-                <h3 class="font-bold text-xl mb-4">وسائل الدفع والشحن</h3>
-                <p class="text-text-muted">نقبل الدفع عند الاستلام، والبطاقات الائتمانية.</p>
-                <p class="text-text-muted mt-2">التوصيل داخل الجامعة وجميع المناطق.</p>
-            </div>
+      <div class="container mx-auto grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-bold text-xl mb-4">روابط سريعة</h3>
+          <ul>
+            <li>
+              <a href="#" class="text-text-muted hover:text-accent"
+                >كيفية الطلب والتوصيل</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-text-muted hover:text-accent"
+                >تواصل معنا</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-text-muted hover:text-accent"
+                >سياسة الخصوصية</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="mt-12 border-t border-gray-200 pt-8">
-            <p class="text-text-muted">&copy; 2025 Rawnak | رونق. كل الحب من فريقكم الجامعي.</p>
+        <div>
+          <h3 class="font-bold text-xl mb-4">تواصل معنا</h3>
+          <div class="flex justify-center items-center gap-2">
+            <img
+              src="images/رونق_favicon_32px_transparent.png"
+              alt="شعار رونق"
+              class="w-6 h-6 invert"
+            />
+            <p class="text-text-muted">contact@rawnak.com</p>
+          </div>
+          <div class="flex justify-center gap-4 mt-2">
+            <a href="#" class="text-text-muted hover:text-accent">Instagram</a>
+            <a href="#" class="text-text-muted hover:text-accent">Twitter</a>
+          </div>
         </div>
+        <div>
+          <h3 class="font-bold text-xl mb-4">وسائل الدفع والشحن</h3>
+          <p class="text-text-muted">
+            نقبل الدفع عند الاستلام، والبطاقات الائتمانية.
+          </p>
+          <p class="text-text-muted mt-2">
+            التوصيل داخل الجامعة وجميع المناطق.
+          </p>
+        </div>
+      </div>
+      <div class="mt-12 border-t border-gray-200 pt-8">
+        <p class="text-text-muted">
+          &copy; 2025 Rawnak | رونق. كل الحب من فريقكم الجامعي.
+        </p>
+      </div>
     </footer>
 
     <div id="cart-modal-overlay" class="cart-modal-overlay">
-        <div class="cart-modal-content">
-            <button id="cart-modal-close-btn" class="cart-modal-close">&times;</button>
-            <h2 class="text-2xl font-bold text-accent mb-4">سلة مشترياتك</h2>
-            <div id="cart-items-list" class="cart-items-list">
-                </div>
-            <div class="cart-empty-message hidden" id="cart-empty-message">
-                سلة المشتريات فارغة!
-            </div>
-            <div class="cart-summary">
-                <p>الإجمالي الفرعي: <span id="cart-subtotal">0.00</span> د.أ</p>
-                <p class="text-2xl font-extrabold mt-2">الإجمالي: <span id="cart-total">0.00</span> د.أ</p>
-            </div>
-            <button id="checkout-btn" class="cta-button cart-checkout-btn">تأكيد الطلب</button>
+      <div class="cart-modal-content">
+        <button id="cart-modal-close-btn" class="cart-modal-close">
+          &times;
+        </button>
+        <h2 class="text-2xl font-bold text-accent mb-4">سلة مشترياتك</h2>
+        <div id="cart-items-list" class="cart-items-list"></div>
+        <div class="cart-empty-message hidden" id="cart-empty-message">
+          سلة المشتريات فارغة!
         </div>
+        <div class="cart-summary">
+          <p>الإجمالي الفرعي: <span id="cart-subtotal">0.00</span> د.أ</p>
+          <p class="text-2xl font-extrabold mt-2">
+            الإجمالي: <span id="cart-total">0.00</span> د.أ
+          </p>
+        </div>
+        <button id="checkout-btn" class="cta-button cart-checkout-btn">
+          تأكيد الطلب
+        </button>
+      </div>
     </div>
 
     <script type="module" src="main.js"></script>
     <script type="module" src="auth.js"></script>
-</body>
+  </body>
 </html>
