@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسابي - رونق</title>
+    <link rel="icon" type="image/png" href="images/رونق_favicon_32px.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aurora-background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+    </div>
+
+    <header class="glass-effect sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="images/رونق_large_800px_transparent.png" alt="شعار رونق" class="w-24 h-24 ">
+            </a>
+            <nav class="hidden lg:flex items-center gap-x-8 text-lg">
+                <a href="index.html#products" class="nav-link">المنتجات</a>
+                <a href="index.html#batches" class="nav-link">دفعتك</a>
+                <a href="index.html#initiatives" class="nav-link">المبادرات</a>
+                <a href="index.html#community" class="nav-link">المجتمع</a>
+                <a href="index.html#membership" class="nav-link">الاشتراك</a>
+            </nav>
+            
+            <div id="user-actions" class="hidden lg:flex items-center gap-4">
+                <div class="h-8 w-36 bg-gray-200/50 rounded-lg animate-pulse"></div>
+            </div>
+            
+            <button id="mobile-menu-button" class="lg:hidden text-accent focus:outline-none">
+                <span class="text-3xl">☰</span>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <a href="index.html#products" class="block text-center py-3 text-lg hover:bg-gray-100">المنتجات</a>
+            <a href="index.html#batches" class="block text-center py-3 text-lg hover:bg-gray-100">دفعتك</a>
+            <a href="index.html#initiatives" class="block text-center py-3 text-lg hover:bg-gray-100">المبادرات</a>
+            <a href="index.html#community" class="block text-center py-3 text-lg hover:bg-gray-100">المجتمع</a>
+            <a href="index.html#membership" class="block text-center py-3 text-lg hover:bg-gray-100">الاشتراك</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 mt-8">
+        <div class="flex justify-between items-center mb-10">
+            <h1 class="text-4xl font-bold text-accent">طلباتي</h1>
+            <button id="logout-btn-main" class="bg-red-500 text-white px-5 py-2 rounded-lg hover:bg-red-600 transition">تسجيل الخروج</button>
+        </div>
+        
+        <div id="my-orders-list" class="space-y-6">
+            <p class="text-center text-gray-500">جاري تحميل طلباتك...</p>
+        </div>
+    </main>
+
+    <footer class="pt-20 pb-10 px-4 text-center">
+        <div class="mt-12 border-t border-gray-200 pt-8">
+            <p class="text-text-muted">&copy; 2025 Rawnak | رونق.</p>
+        </div>
+    </footer>
+    
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="my-account.js"></script>
+</body>
+</html>

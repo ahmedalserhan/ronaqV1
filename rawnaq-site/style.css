@@ -1,0 +1,828 @@
+:root {
+    --accent-color: #000000;
+    --accent-color-dark: #333333;
+    --text-dark: #1A1A1A;
+    --text-muted: #555555;
+    --bg-light: #F9FAFB;
+
+    /* تعريفات إضافية لألوان Tailwind لسهولة الاستخدام، إذا لم تكن موجودة بالفعل */
+    --purple-600: #7c3aed;
+    --purple-700: #6d28d9;
+    --red-500: #ef4444;
+    --green-500: #22c55e;
+    --blue-500: #3b82f6;
+    --yellow-500: #eab308;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي على الشاشات الصغيرة */
+    line-height: 1.6; /* تحسين قابلية القراءة */
+}
+
+/* RTL-specific adjustments */
+body[dir="rtl"] {
+    text-align: right;
+}
+
+/* Aurora Background */
+.aurora-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.aurora-background .shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: rotate 40s infinite linear;
+}
+
+.aurora-background .shape1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(192, 192, 192, 0.3);
+    top: -50px;
+    left: -50px;
+}
+
+.aurora-background .shape2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(220, 220, 220, 0.3);
+    bottom: -100px;
+    right: -100px;
+    animation-duration: 50s;
+}
+
+/* Beautified Glass Effect */
+.glass-effect {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, rgba(0,0,0,0.1), rgba(0,0,0,0.02)) 1;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-effect:hover {
+    box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Nav Link Style */
+.nav-link {
+    position: relative;
+    padding: 8px 4px;
+    transition: color 0.3s ease;
+    color: var(--text-muted);
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.cta-button:hover {
+    background-color: var(--accent-color-dark);
+    transform: scale(1.05);
+}
+
+/* Mobile Menu */
+#mobile-menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+#mobile-menu.open {
+    max-height: 500px; /* Adjust as needed */
+    opacity: 1;
+}
+
+/* Form inputs (Shared between login and admin) */
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    direction: rtl;
+    text-align: right;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.7); /* خلفية شبه شفافة */
+    color: var(--text-dark); /* لون النص */
+    border-color: rgba(0, 0, 0, 0.1); /* حدود شفافة قليلاً */
+}
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent-color); /* لون التركيز الأساسي */
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1); /* ظل خفيف عند التركيز */
+}
+
+.form-input-file {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--bg-light); /* يستخدم لون الخلفية الفاتح */
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7); /* خلفية شبه شفافة */
+    color: var(--text-dark); /* لون النص */
+    border-color: rgba(0, 0, 0, 0.1); /* حدود شفافة قليلاً */
+}
+.form-input-file::file-selector-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem; /* Adjust for RTL */
+    transition: background-color 0.3s ease;
+}
+.form-input-file::file-selector-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+/* Modal Styles (Admin only) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Card Styles (Shared between index and admin) */
+.product-card, .event-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.event-card {
+    align-items: flex-start; /* Align text to right for RTL */
+    text-align: right;
+}
+
+/* Public page event card specific styles */
+#public-initiatives-list .event-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#public-initiatives-list .event-card img {
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Admin page event card specific styles */
+#eventsList .event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  #eventsList .event-card {
+    flex-direction: row;
+  }
+}
+
+#eventsList .event-card img {
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    align-self: center;
+}
+/* User Dropdown Menu Styles */
+.user-menu-container {
+    position: relative;
+}
+
+.user-dropdown {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px); /* Position below the button */
+    width: 200px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.user-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown a, .user-dropdown button {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 10px 15px;
+    color: var(--text-dark);
+    transition: background-color 0.2s ease;
+}
+
+.user-dropdown a:hover, .user-dropdown button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------- ستايلات مخصصة للوحة تحكم رونق (Admin Dashboard) ------------------- */
+/* ------------------- لجعل التصميم شفافاً بالكامل وجميلاً بالأبيض والأسود ------------------- */
+/* -------------------------------------------------------------------------------------- */
+
+/* الخلفية الرئيسية لجسم لوحة التحكم */
+body.admin-dashboard-body {
+    background-color: transparent; /* جعل خلفية الجسم شفافة تمامًا */
+    background-image: none; /* إزالة أي خلفية متدرجة سابقة */
+    color: var(--text-dark);
+}
+
+/* الشريط الجانبي (Sidebar) */
+aside#sidebar {
+    background: rgba(255, 255, 255, 0.1); /* خلفية بيضاء شفافة جدًا */
+    backdrop-filter: blur(30px) saturate(200%); /* تأثير ضبابي قوي مع تشبع */
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border-right: 1px solid rgba(255, 255, 255, 0.05); /* حدود بيضاء خفيفة جدًا */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* ظل خفيف وأنيق */
+    border-radius: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* روابط الشريط الجانبي */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-dark); /* نص بلون داكن ليتضح على الخلفية الفاتحة */
+    transition: all 0.2s ease;
+    text-align: right;
+}
+.sidebar-link:hover {
+    background-color: rgba(0, 0, 0, 0.03); /* خلفية شفافة عند التحويم */
+    color: var(--accent-color);
+}
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.2); /* خلفية بيضاء شفافة أكثر للعنصر النشط */
+    border-right: 4px solid var(--accent-color); /* خط جانبي بلون Accent */
+    font-weight: 700;
+    color: var(--accent-color);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08); /* ظل خفيف على اليمين */
+}
+/* ألوان الأيقونات في الشريط الجانبي */
+.sidebar-link svg {
+    color: var(--text-muted); /* أيقونات بلون نص مطفأ */
+}
+.sidebar-link.active svg {
+    color: var(--accent-color); /* أيقونات نشطة بلون Accent */
+}
+
+/* الهيدر الرئيسي للوحة التحكم */
+header.glass-effect { /* استخدمنا glass-effect مباشرة هنا لأنه يمتلك الخصائص المطلوبة */
+    background: rgba(255, 255, 255, 0.1); /* خلفية بيضاء شفافة جدًا */
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* حدود بيضاء خفيفة */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* البطاقات داخل الأقسام (Overview, Users, etc.) */
+.admin-content-card {
+    background: rgba(255, 255, 255, 0.1); /* خلفية بيضاء شفافة جدًا */
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* حدود بيضاء خفيفة */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.admin-content-card:hover {
+    box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.18); /* ظل أقوى عند التحويم */
+    transform: translateY(-5px);
+}
+
+/* عناوين الأقسام داخل البطاقات */
+.admin-content-card h2, .admin-content-card h3 {
+    color: var(--accent-color); /* لتكون بلون Accent (الأسود) */
+}
+
+/* بطاقات الإحصائيات داخل Overview */
+.stat-card {
+    background: rgba(255, 255, 255, 0.2); /* خلفية بيضاء أكثر شفافية للإحصائيات */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    color: var(--text-dark);
+}
+.stat-card p {
+    color: var(--text-muted);
+}
+.stat-card .value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-color-dark); /* لون Accent داكن للأرقام */
+}
+
+/* الجداول في لوحة التحكم */
+.admin-table-container {
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* حدود بيضاء خفيفة جداً */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.1); /* خلفية الحاوي الزجاجية الشفافة */
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.admin-table th, .admin-table td {
+    padding: 1rem 1.25rem;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* حدود شفافة بين الصفوف */
+    color: var(--text-dark);
+}
+.admin-table th {
+    background: rgba(255, 255, 255, 0.2); /* رؤوس الجدول بلون أبيض شفاف أكثر */
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+.admin-table tr {
+    background: transparent; /* الصفوف نفسها شفافة لتعكس خلفية الحاوي */
+    transition: background-color 0.2s ease;
+}
+.admin-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05); /* صفوف زوجية بلون شفاف خفيف جداً */
+}
+.admin-table tr:hover {
+    background: rgba(255, 255, 255, 0.1); /* تأثير hover متناسق وشفاف */
+}
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* أزرار الإجراءات داخل الجداول (ألوان Tailwind المحددة) */
+.admin-table button {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    /* الألوان ستحافظ على ما هو محدد في HTML (bg-blue-500, bg-red-500, إلخ) */
+    /* يمكنك جعلها شفافة أكثر إذا أردت: background-color: rgba(لون_محدد, 0.8); */
+}
+.admin-table button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* تحسينات لمدخلات النماذج في المودال (إذا كانت ليست form-input) */
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea {
+    background-color: rgba(255, 255, 255, 0.9); /* خلفية المدخلات داخل المودال (أكثر عتمة قليلاً) */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+}
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.2); /* استخدام لون الظل من الـ accent-color (أسود شفاف) */
+}
+
+/* لضمان اختفاء الشريط الجانبي في الجوالات بشكل افتراضي */
+#sidebar.hidden-mobile {
+    transform: translateX(100%);
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    width: 256px;
+    background: rgba(255, 255, 255, 0.1); /* خلفية شفافة في الجوال أيضاً */
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+}
+@media (min-width: 1024px) {
+    #sidebar.hidden-mobile {
+        transform: translateX(0);
+        position: relative;
+        box-shadow: none;
+    }
+}
+/* ------------------- ستايلات مخصصة لصفحة تسجيل الدخول (login.html) ------------------- */
+
+body.login-body {
+    background-color: var(--bg-light); /* يستخدم المتغيرات من الـ :root */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.7); /* خلفية زجاجية */
+    backdrop-filter: blur(24px); /* ضبابية */
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 1.5rem; /* 24px */
+    padding: 2rem 2.5rem; /* 32px 40px */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* حدود شفافة */
+    max-width: 28rem; /* 448px */
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* 12px */
+    background-color: white;
+    border: 1px solid var(--gray-300); /* استخدام متغير */
+    color: var(--text-dark);
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    border-radius: 0.5rem; /* 8px */
+    font-weight: 600;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+.google-btn:hover {
+    background-color: var(--gray-100); /* لون فاتح عند التحويم */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.google-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+/* -------------------------------------------------------------------------------------- */
+/* ------------------- ستايلات جديدة مخصصة لسلة المشتريات (Cart Icon) ------------------- */
+/* -------------------------------------------------------------------------------------- */
+
+.cart-icon-container {
+    position: relative;
+    display: flex; /* للتوافق مع ترتيب العناصر في الهيدر */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5rem; /* مساحة حول الأيقونة */
+    border-radius: 9999px; /* شكل دائري */
+    transition: background-color 0.2s ease;
+}
+
+.cart-icon-container:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* تأثير هوفر خفيف */
+}
+
+.cart-icon-container svg {
+    width: 28px; /* حجم الأيقونة */
+    height: 28px;
+    color: var(--text-dark); /* لون الأيقونة */
+}
+
+.cart-item-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--accent-color); /* لون الـ accent (أسود) */
+    color: white;
+    font-size: 0.75rem; /* 12px */
+    font-weight: bold;
+    border-radius: 9999px; /* شكل دائري */
+    padding: 0.1rem 0.4rem;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* لتسمح بالنقر على الأيقونة أسفلها */
+    transform: scale(0.9); /* تصغير طفيف */
+}
+/* -------------------------------------------------------------------------------------- */
+/* ------------------- ستايلات جديدة مخصصة لسلة المشتريات (Cart Modal) ------------------- */
+/* -------------------------------------------------------------------------------------- */
+
+.cart-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* خلفية معتمة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* أعلى من معظم العناصر */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-modal-content {
+    background: rgba(255, 255, 255, 0.95); /* شفافية عالية */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5rem; /* حواف مستديرة */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); /* ظل قوي */
+    width: 95%; /* عرض أكبر للجوال */
+    max-width: 600px; /* أقصى عرض */
+    max-height: 90vh; /* ارتفاع أقصى مع التمرير */
+    overflow-y: auto; /* تمكين التمرير إذا كان المحتوى كبيراً */
+    padding: 2rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1); /* حدود خفيفة */
+}
+
+.cart-modal-overlay.open .cart-modal-content {
+    transform: translateY(0);
+}
+
+.cart-modal-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    line-height: 1; /* لتجنب مسافات إضافية */
+}
+.cart-modal-close:hover {
+    color: var(--accent-color-dark);
+}
+
+.cart-items-list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.7); /* خلفية شفافة للعنصر الواحد */
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-details p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-control-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.quantity-control-btn:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.cart-item-quantity {
+    width: 40px;
+    text-align: center;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--text-dark);
+}
+
+.remove-item-btn {
+    background-color: var(--red-500); /* لون أحمر */
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.8rem;
+}
+.remove-item-btn:hover {
+    background-color: #dc2626; /* أغمق قليلاً من الأحمر */
+}
+
+.cart-summary {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--gray-300); /* خط متقطع خفيف */
+    text-align: left;
+}
+
+.cart-summary p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.cart-checkout-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 0.75rem;
+}
+
+/* في حالة كانت السلة فارغة */
+.cart-empty-message {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+/* Media Queries لتحسين التوافق على الجوالات */
+@media (max-width: 640px) { /* Small screens / phones */
+    .cart-modal-content {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    .cart-item {
+        flex-wrap: wrap; /* السماح للعناصر بالنزول لسطر جديد */
+        justify-content: center; /* توسيط العناصر عند الالتفاف */
+        text-align: center;
+    }
+    .cart-item img {
+        width: 60px;
+        height: 60px;
+    }
+    .cart-item-details {
+        width: 100%; /* تفاصيل المنتج تأخذ كامل العرض */
+        text-align: center;
+    }
+    .cart-item-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    .remove-item-btn {
+        margin-top: 0.5rem;
+    }
+    .cart-checkout-btn {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}

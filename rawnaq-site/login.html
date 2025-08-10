@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تسجيل الدخول | رونق</title>
+    <link rel="icon" type="image/png" href="images/رونق_favicon_32px.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+   
+</head>
+<body class="login-body">
+    <div class="aurora-background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+    </div>
+
+    <div class="login-card">
+        <img src="images/رونق_large_800px_transparent.png" alt="شعار رونق" class="w-48 mx-auto mb-8" />
+        <h1 class="text-3xl font-bold text-accent mb-6">تسجيل الدخول</h1>
+
+        <button id="google-login-btn" class="google-btn mb-6">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.24 10.29v3.08h6.44c-.28 1.94-1.42 4.1-3.9 5.61l.01.01 2.94 2.27c2.47-2.31 4.14-5.71 4.14-10.42 0-.69-.06-1.35-.18-1.99H12.24zm0-3.87h-.01c-2.47 0-4.49 1.14-5.96 2.99l-2.73-2.1c1.98-2.6 4.96-4.46 8.69-4.46 2.05 0 3.79.7 5.09 1.98l-2.94 2.27c-.8-.74-1.9-1.2-3.14-1.2zM4.3 12.52c-.17-.79-.26-1.62-.26-2.45s.09-1.66.26-2.45V5.59L1.57 3.42C.59 5.56 0 7.78 0 10.07s.59 4.51 1.57 6.65L4.3 12.52z" fill="#F4B400"/><path d="M22.84 10.07c0-.69-.06-1.35-.18-1.99H12.24v3.08h6.44c-.28 1.94-1.42 4.1-3.9 5.61l.01.01 2.94 2.27c2.47-2.31 4.14-5.71 4.14-10.42z" fill="#4285F4"/><path d="M12.24 10.29v3.08h6.44c-.28 1.94-1.42 4.1-3.9 5.61l.01.01 2.94 2.27c2.47-2.31 4.14-5.71 4.14-10.42z" fill="#DB4437"/><path d="M12.24 10.29v3.08h6.44c-.28 1.94-1.42 4.1-3.9 5.61l.01.01 2.94 2.27c2.47-2.31 4.14-5.71 4.14-10.42z" fill="#0F9D58"/></svg>
+            <span>تسجيل الدخول بحساب جوجل</span>
+        </button>
+
+        <div class="relative flex items-center justify-center text-xs text-gray-500 uppercase mb-6">
+            <span class="bg-white px-2 z-10">أو</span>
+            <div class="absolute w-full border-t border-gray-300"></div>
+        </div>
+
+        <form id="login-form" class="space-y-4">
+            <div>
+                <label for="login-email" class="sr-only">البريد الإلكتروني</label>
+                <input type="email" id="login-email" class="form-input" placeholder="البريد الإلكتروني" required />
+            </div>
+            <div>
+                <label for="login-password" class="sr-only">كلمة المرور</label>
+                <input type="password" id="login-password" class="form-input" placeholder="كلمة المرور" required />
+            </div>
+            <button type="submit" class="cta-button w-full">تسجيل الدخول</button>
+        </form>
+
+        <p class="mt-6 text-sm text-gray-600">
+            ليس لديك حساب؟ <a href="signup.html" class="text-accent hover:underline">سجل الآن</a>
+        </p>
+        <p class="mt-2 text-sm text-gray-600">
+            <a href="forgot-password.html" class="text-accent hover:underline">نسيت كلمة المرور؟</a>
+        </p>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

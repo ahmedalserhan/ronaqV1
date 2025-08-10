@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rawnak Admin | لوحة تحكم رونق</title>
+  <link rel="icon" type="image/png" href="images/رونق_favicon_32px.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="admin-dashboard-body">
+  <!-- خلفية أورورا متحركة -->
+  <div class="aurora-background">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+  </div>
+
+  <div class="flex h-screen overflow-hidden">
+    <!-- الشريط الجانبي الزجاجي الشفاف -->
+    <aside id="sidebar" class="fixed right-0 top-0 h-full w-64 glass-effect transform translate-x-0 transition-transform duration-300 ease-in-out z-50 lg:relative lg:translate-x-0 lg:shadow-none hidden-mobile">
+      <div class="p-6 flex items-center justify-between border-b border-white/20">
+        <h2 class="text-2xl font-bold text-accent">لوحة تحكم رونق</h2>
+        <button id="sidebar-toggle" class="lg:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <nav class="mt-8 space-y-2">
+        <a href="#overview" class="sidebar-link active" data-target="overview">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l7 7m-2 2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span>نظرة عامة</span>
+        </a>
+        <!-- روابط أخرى بنفس الأنماط -->
+      </nav>
+    </aside>
+
+    <!-- المحتوى الرئيسي الشفاف -->
+    <div class="flex-1 flex flex-col glass-effect overflow-y-auto">
+      <!-- الهيدر الشفاف -->
+      <header class="glass-effect flex justify-between items-center p-4">
+        <button id="sidebar-toggle-main" class="lg:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
+          <span class="text-3xl">☰</span>
+        </button>
+        <h1 class="text-3xl font-bold text-gray-800">لوحة التحكم</h1>
+        <div id="admin-header-controls" class="flex items-center gap-4">
+          <div class="h-8 w-36 bg-gray-200/50 rounded-lg animate-pulse"></div>
+        </div>
+      </header>
+
+      <main class="flex-1 p-6 overflow-x-hidden">
+        <!-- قسم نظرة عامة -->
+        <section id="overview" class="admin-content-card fade-in">
+          <h2 class="text-2xl font-semibold mb-4 text-accent">نظرة عامة</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="stat-card">
+              <h3 class="font-semibold text-lg">إجمالي المستخدمين</h3>
+              <p class="value" id="total-users">0</p>
+            </div>
+            <div class="stat-card">
+              <h3 class="font-semibold text-lg">الطلبات الجديدة</h3>
+              <p class="value" id="new-orders">0</p>
+            </div>
+            <div class="stat-card">
+              <h3 class="font-semibold text-lg">المنتجات النشطة</h3>
+              <p class="value" id="active-products">0</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- قسم الطلبات -->
+        <section id="orders" class="admin-content-card hidden fade-in">
+          <h2 class="text-2xl font-semibold mb-4 text-accent">إدارة الطلبات</h2>
+          <div id="ordersListAdmin" class="space-y-4">
+            <p class="text-gray-600">جاري تحميل الطلبات...</p>
+          </div>
+        </section>
+
+        <!-- مودال إضافة/تعديل منتج -->
+        <div id="productModal" class="modal-overlay hidden">
+          <div class="modal-content">
+            <h3 class="text-xl font-semibold mb-4 text-accent">إضافة / تعديل منتج</h3>
+            <form id="productForm">
+              <div class="mb-4">
+                <label for="productName" class="block text-sm font-medium text-gray-700">اسم المنتج</label>
+                <input type="text" id="productName" class="form-input" required />
+              </div>
+              <div class="mb-4">
+                <label for="productPrice" class="block text-sm font-medium text-gray-700">السعر</label>
+                <input type="number" step="0.01" id="productPrice" class="form-input" required />
+              </div>
+              <div class="mb-4">
+                <label for="productImage" class="block text-sm font-medium text-gray-700">صورة المنتج</label>
+                <input type="file" id="productImage" accept="image/*" class="form-input-file" />
+                <img id="currentProductImage" src="" alt="صورة المنتج الحالية" class="mt-2 h-20 w-20 object-cover rounded hidden border border-gray-200" />
+              </div>
+              <div class="flex justify-end gap-2 mt-6">
+                <button type="button" id="cancelProductBtn" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-400 transition">إلغاء</button>
+                <button type="submit" class="cta-button">حفظ المنتج</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- يمكن إضافة مودالات وأقسام أخرى بنفس النمط -->
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
